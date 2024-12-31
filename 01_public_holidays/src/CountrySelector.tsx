@@ -19,7 +19,7 @@ export const CountrySelector = ({onCountrySelect}: { onCountrySelect: (country: 
     }
 
     return (
-        <select onChange={selectHandler}>
+        <select className='form-control' onChange={selectHandler}>
             {countries.map(country => <option key={country.isoCode}
                                               value={country.isoCode}>{country.name[0].text}</option>)}
         </select>

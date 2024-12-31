@@ -26,7 +26,6 @@ function App() {
     return (
         <>
             <CountrySelector onCountrySelect={setSelectedCountry}/>
-            <h2 className='text-center'>{selectedCountry?.name[0].text}</h2>
             <Holidays holidays={holidays}/>
         </>
     )
