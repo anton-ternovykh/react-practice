@@ -1,0 +1,31 @@
+.card-body {
+    &.full-height {
+        height: 400px;
+        overflow-y: scroll;
+    }
+}
+
+.show-more-comments {
+    text-align: center;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.comment {
+    margin-left: 20px;
+    margin-bottom: 10px;
+
+    .show-more-comments {
+        text-align: right;
+    }
+}
+
+.comment__body {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid lightgray;
+}
+
+.comment__footer {
+    border-top: 1px solid lightgray;
+}
