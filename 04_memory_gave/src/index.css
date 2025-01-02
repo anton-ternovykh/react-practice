@@ -1,0 +1,33 @@
+.image-container {
+    float: left;
+    border: 1px solid cornflowerblue;
+    border-radius: 15px;
+    width: 120px;
+    height: 120px;
+}
+
+.image-container:nth-child(7n) {
+    /*float: none;*/
+}
+
+.flipped-cover {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    position: relative;
+    background: red;
+    top: -120px;
+
+    &.flipped {
+        background: none;
+    }
+}
+
+.image {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    &.flipped {
+        transform: scaleX(0);
+    }
+}
