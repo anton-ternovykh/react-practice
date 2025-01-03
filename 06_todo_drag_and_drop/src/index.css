@@ -1,0 +1,28 @@
+.list-group {
+    min-height: 200px;
+}
+
+.list-group-item {
+    cursor: grab;
+
+    &:active {
+        background: #deebef !important;
+        cursor: grabbing;
+    }
+
+    &:last-child {
+        border-bottom-width: 1px !important;
+        border-radius: 0 !important;
+    }
+}
+
+.card {
+    &.drag-over {
+        border-style: dashed;
+
+        .list-group {
+            background-color: #efeeee;
+        }
+    }
+}
+
