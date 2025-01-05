@@ -1,44 +1,22 @@
-import {useRef, useState} from 'react'
+import {useState} from 'react'
 import './App.css'
+import {useInterval} from "./UseInterval.tsx";
 
-function App() {
+const App = () => {
 
-    const defaultTimeValue = 5 * 60 * 1000;
-    const [timerValue, setTimerValue] = useState(0);
-    const intervalEnabled = useRef<boolean>(false);
+    const defaultTimeValue = 5 * 60;
+    const [enabled, setEnabled] = useState<boolean>(false);
+    const [timer, setTimer] = useState(defaultTimeValue);
 
-    const handleStartClick = () => {
-        if (intervalEnabled.current)
+    useInterval(() => {
+        if (!enabled) {
             return;
-        intervalEnabled.current = true;
-
-        const startTime = Date.now();
-
-        const tick = (startTime: number) => {
-            if (!intervalEnabled.current)
-                return;
-            setTimerValue(Date.now() - startTime);
-            if (startTime + defaultTimeValue <= Date.now()) {
-                return;
-            }
-            setTimeout(() => {
-                tick(startTime);
-            }, 10);
         }
-        tick(startTime);
-    }
+        if (timer > 0)
+            setTimer(timer - 1);
+    }, 1000)
 
-    const handleStopClick = () => {
-        intervalEnabled.current = false;
-    }
-
-    const handleResetClick = () => {
-        setTimerValue(defaultTimeValue);
-    }
-
-    const deltaTime = defaultTimeValue - timerValue;
-
-    const seconds = Math.floor(deltaTime / 1000);
+    const seconds = Math.floor(timer);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
 
@@ -60,18 +38,20 @@ function App() {
                     <div className="btn-group" role="group" aria-label="Basic example">
                         <button type="button"
                                 className="btn btn-primary"
-                                disabled={intervalEnabled.current}
-                                onClick={handleStartClick}>
+                                disabled={enabled}
+                                onClick={() => setEnabled(true)}>
                             Start
                         </button>
                         <button
                             type="button"
                             className="btn btn-primary"
-                            disabled={!intervalEnabled.current}
-                            onClick={handleStopClick}>
+                            disabled={!enabled}
+                            onClick={() => setEnabled(false)}>
                             Stop
                         </button>
-                        <button type="button" className="btn btn-primary" onClick={handleResetClick}>Reset</button>
+                        <button type="button" className="btn btn-primary"
+                                onClick={() => setTimer(defaultTimeValue)}>Reset
+                        </button>
                     </div>
                 </div>
             </div>
