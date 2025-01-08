@@ -1,0 +1,84 @@
+.dialog-overlay {
+    background: #b7b1b121;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+.dialog-container {
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
+
+    background: #fff;
+
+    .dialog-header {
+        background: #ebebeb;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .dialog-footer {
+        button {
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+
+    .dialog-content {
+        text-align: center;
+        width: 100%;
+        display: block;
+
+    }
+}
+
+.numberOfPersons {
+    text-align: center;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: auto;
+        width: 61%;
+
+        .numberOfPersons__selector {
+            float: left;
+            border: 1px solid #ccc;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            margin: 10px;
+            cursor: pointer;
+
+            &.selected {
+                background: #8d8fff;
+            }
+        }
+    }
+}
+
+.date-selector {
+    margin-bottom: 10px;
+    height: 100%;
+}
+
+.dialog-footer {
+    .button-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .button-container:first-child {
+        padding-left: calc(var(--bs-gutter-x) * .5);
+    }
+
+    .button-container:last-child {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+    }
+}
